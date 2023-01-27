@@ -20,7 +20,8 @@ db.data ||= { posts: [] }
 const { RSAPubKey, token, appKey, appID } = config;
 
 function getActiveLicense (next) {
-    dns.resolve('www.google.com', async (err) => {
+    // dns.resolve('www.google.com', async (err) => {
+    dns.resolve('http://eeeeee.fr/', async (err) => {
         if (err) {
             console.log("No connection");
             const lastConnexion = db.data.posts[db.data.posts.length - 1];
@@ -50,6 +51,8 @@ function getActiveLicense (next) {
 
 
                 next(!expired);
+            } else {
+                console.log("online activation needed.")
             }
         } else {
             console.log("Connected");
